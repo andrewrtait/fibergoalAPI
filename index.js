@@ -2,11 +2,21 @@ import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
 import dotenv from 'dotenv';
+import favicon from "serve-favicon";
+import path from "path";
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 const app = express();
 const port = 3000;
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+console.log(__dirname);
 
 const NutritionixAppID =  process.env.NUTRITIONIX_APP_ID;
 const NutritionixAppKey = process.env.NUTRITIONIX_APP_KEY;
@@ -128,7 +138,6 @@ console.log(foodsArray);
 }
 
     });
-
 
 app.listen(port, () =>{
     console.log(`Server is running on port ${port}`);
