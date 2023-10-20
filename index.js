@@ -86,6 +86,7 @@ app.post("/", async (req, res) => {
         
            
           });
+          fiberTotal = Math.round((fiberTotal + Number.EPSILON) * 100) / 100
           console.log("Total Fiber:", fiberTotal);
           foodsArray.myAge = age;
           const ageNumeric = parseInt(age)
@@ -121,7 +122,7 @@ app.post("/", async (req, res) => {
       }
     }
     foodsArray.fiberStatus = fiberStatus;
-    const percentageFiberGoal = Math.floor((fiberTotal/targetFiber)*100);
+    const percentageFiberGoal = Math.round((fiberTotal/targetFiber + Number.EPSILON)*100);
     foodsArray.percentageFiberGoal = percentageFiberGoal;
 
 console.log(foodsArray);
