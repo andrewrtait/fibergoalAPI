@@ -200,7 +200,7 @@
             <ul>
               <li>Food Name: <%= food.food_name %></li>
               <li>Dietary Fiber: <%= food.nf_dietary_fiber %> grams</li> <br><br>
-              <% fiberTotal = Math.floor(fiberTotal + food.nf_dietary_fiber) %> 
+              <% fiberTotal = fiberTotal + food.nf_dietary_fiber %>
               <img src=<%=food.photo.thumb %>> 
             </ul>
           </li>
